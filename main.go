@@ -32,8 +32,8 @@ type User struct {
 }
 
 var (
-	oauthConf        *oauth2.Config
-	db               *gorm.DB
+	oauthConf *oauth2.Config
+	db        *gorm.DB
 )
 
 func generateState() string {
@@ -55,8 +55,6 @@ func init() {
 	clientSecret := os.Getenv("GITHUB_CLIENT_SECRET")
 	redirectURL := os.Getenv("GITHUB_REDIRECT_URL")
 	postgresDSN := os.Getenv("POSTGRES_DSN")
-
-	log.Println("PostgreSQL DSN: ", postgresDSN)
 
 	oauthConf = &oauth2.Config{
 		ClientID:     clientID,
